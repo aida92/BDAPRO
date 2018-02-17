@@ -16,10 +16,11 @@
     <orderEntry type="library" name="Maven: net.java.dev.jna:jna-platform:4.5.1" level="project" />
     <orderEntry type="library" name="Maven: net.java.dev.jna:jna:4.5.1" level="project" />
     <orderEntry type="library" name="Maven: org.threeten:threetenbp:1.3.6" level="project" />
+    <orderEntry type="library" name="Maven: com.github.oshi:oshi-parent:3.4.4" level="project" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../Monitor/oshi-core-3.4.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/oshi-core-3.4.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

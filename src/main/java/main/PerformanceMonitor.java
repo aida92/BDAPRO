@@ -10,10 +10,7 @@ import oshi.util.FormatUtil;
 import oshi.util.Util;
 
 import java.io.*;
-import java.util.Arrays;
-import java.util.Scanner;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 public class PerformanceMonitor implements Runnable {
 
@@ -205,5 +202,13 @@ public class PerformanceMonitor implements Runnable {
         monitor.run = false;
         t.interrupt();
         System.out.println("==========ended==========");
+
+        DTUMapper mapper = new DTUMapper();
+        mapper.map();
+
+
+
+
+
     }
 }
