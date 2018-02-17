@@ -10,10 +10,8 @@ import oshi.util.FormatUtil;
 import oshi.util.Util;
 
 import java.io.*;
-import java.util.Arrays;
-import java.util.Scanner;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class PerformanceMonitor implements Runnable {
 
@@ -36,7 +34,7 @@ public class PerformanceMonitor implements Runnable {
 
         try {
             writer = new PrintWriter(new File(output));
-            writer.write("CPU % load(ticks), CPU % load(OS MX Bean),Reads,Reads(GiB),Writes,Writes(GiB)\n");
+            writer.write("Timestamp,CPU % load(ticks), CPU % load(OS MX Bean),Reads,Reads(GiB),Writes,Writes(GiB)\n");
         } catch (FileNotFoundException e) {
             System.out.println("Cannot open the file!");
             e.printStackTrace();
@@ -173,6 +171,8 @@ public class PerformanceMonitor implements Runnable {
 
     public void printStats() {
         //System.out.println("Processor info:");
+
+        writer.write(new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS,").format(new Date()));
 
         printCpu(cpu);
 
