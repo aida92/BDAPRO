@@ -104,6 +104,9 @@ public class PerformanceMonitor implements Runnable {
 
             first = false;
 
+            System.out.println(diskStores[0].getReads() + " * * *");
+            System.out.println(diskStores[0].getWrites() + " * * *");
+
             boolean readwrite = disk.getReads() > 0 || disk.getWrites() > 0;
             result.append(readwrite ? disk.getReads() + "," : "?,");
             result.append(readwrite ? FormatUtil.formatBytes(disk.getReadBytes()) + "," : "?,");
