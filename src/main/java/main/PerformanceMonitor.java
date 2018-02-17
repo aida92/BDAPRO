@@ -194,6 +194,10 @@ public class PerformanceMonitor implements Runnable {
 
         //monitor.printDisks(monitor.disks);
 
+        System.out.println("Enter size of storage in GBs: ");
+
+        double Storage = Double.parseDouble(s.next());
+
         System.out.println("Enter 's' to start, 'q' to quit:");
         if (s.next().toLowerCase().equals("s")) {
             System.out.println("=========started=========");
@@ -205,5 +209,17 @@ public class PerformanceMonitor implements Runnable {
         monitor.run = false;
         t.interrupt();
         System.out.println("==========ended==========");
+
+
+        double maxCPU = getMaxFromCSV.getMax();
+
+        double DTUofCPU = 1.25* maxCPU * 4;
+        System.out.println("Max DTU for CPU = "+DTUofCPU);
+        System.out.println("Max storage = "+ Storage +" GB");
+
+        double pricePerHour = DTUMapper.map(DTUofCPU, Storage);
+
+        System.out.println("Price for your workload on Azure = "+ pricePerHour + " Euro per hour");
+
     }
 }
