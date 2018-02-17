@@ -10,6 +10,7 @@ import oshi.util.FormatUtil;
 import oshi.util.Util;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class PerformanceMonitor implements Runnable {
@@ -33,7 +34,7 @@ public class PerformanceMonitor implements Runnable {
 
         try {
             writer = new PrintWriter(new File(output));
-            writer.write("CPU % load(ticks), CPU % load(OS MX Bean),Reads,Reads(GiB),Writes,Writes(GiB)\n");
+            writer.write("Timestamp,CPU % load(ticks), CPU % load(OS MX Bean),Reads,Reads(GiB),Writes,Writes(GiB)\n");
         } catch (FileNotFoundException e) {
             System.out.println("Cannot open the file!");
             e.printStackTrace();
@@ -171,6 +172,8 @@ public class PerformanceMonitor implements Runnable {
     public void printStats() {
         //System.out.println("Processor info:");
 
+        writer.write(new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS,").format(new Date()));
+
         printCpu(cpu);
 
         //System.out.println("Memory info:");
@@ -202,13 +205,5 @@ public class PerformanceMonitor implements Runnable {
         monitor.run = false;
         t.interrupt();
         System.out.println("==========ended==========");
-
-        DTUMapper mapper = new DTUMapper();
-        mapper.map();
-
-
-
-
-
     }
 }
