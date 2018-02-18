@@ -1,3 +1,0 @@
-Timestamp,CPU % load(ticks), CPU % load(OS MX Bean),Reads,Reads(GiB),Writes,Writes(GiB)
-2018/02/17 15:51:07.175,40.9,52.4,1447033,35.1 GiB,1843319,39.8 GiB
-2018/02/17 15:51:08.203,24.6,24.0,1447033,35.1 GiB,1843319,39.8 GiB
